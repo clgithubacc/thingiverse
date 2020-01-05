@@ -8,7 +8,7 @@ import os
 log_file=open('main_log.txt','w+')
 sleep_time_addon=30
 current_sleep_time=5
-threshold_for_sleep_increase=90
+threshold_for_sleep_increase=100
 wait_upper_threshold=300
 last_terminate_time=datetime.now()
 while True:
@@ -17,7 +17,7 @@ while True:
     print('Program Exit. Taking a break...')
     log_file.write(str(datetime.now())+'#Program Terminated. Time elapsed: ' + \
                    str((last_terminate_time-datetime.now()).seconds)+'\n')
-    if (last_terminate_time-datetime.now()).seconds <threshold_for_sleep_increase:
+    if (last_terminate_time-datetime.now()).seconds < threshold_for_sleep_increase:
         current_sleep_time+=sleep_time_addon
         if current_sleep_time>wait_upper_threshold:
             #API may be blocked. Directly quit
