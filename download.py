@@ -59,7 +59,7 @@ for tid in range(range_from, range_to):
             thing=t.get_thing(tid)
             if 'error' in thing:
                 log_file.write(str(datetime.now()) + '#' + stid + ':GetThingErr:' + thing['error'] + '\n')
-                print("\r" + stid + " Does Not Exist.#", end="", flush=True)
+                print("\r" + 'Thing ' + stid + " Does Not Exist.#", end="", flush=True)
                 does_thing_exist=False
                 break
             thing_categories=t.get_thing_category(tid)
@@ -76,7 +76,7 @@ for tid in range(range_from, range_to):
             thing_zip = t._get_it(s, None)
             thing['thing_zip_raw'] = thing_zip
         except:
-            print("\r" + 'Thing '+ stid + "API Call Failed. Retrying...#", end="", flush=True)
+            print("\r" + 'Thing ' + stid + "API Call Failed. Retrying...#", end="", flush=True)
             api_succeed=False
             time.sleep(1)
             try_count-=1
