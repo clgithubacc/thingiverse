@@ -82,8 +82,10 @@ for tid in range(range_from, range_to):
             try_count-=1
     if try_count<=0:
         log_file.write(str(datetime.now()) + '#' + stid + ': API Call Failed:' + '\n')
+        status_file_path=status_dir+stid
         sys.exit("Reached Max Try for thing# "+str(tid)+", Download Program Exits.")
     if not does_thing_exist:
+        status_file_path=status_dir+stid
         continue
 
     #Simple Preprocessing
