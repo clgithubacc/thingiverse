@@ -6,10 +6,10 @@ import os
 # status_fn=results[0]
 
 log_file=open('main_log.txt','w+')
-sleep_time_addon=30
+sleep_time_addon=10
 current_sleep_time=5
 threshold_for_sleep_increase=100
-wait_upper_threshold=300
+wait_upper_threshold=100
 last_terminate_time=datetime.now()
 while True:
     #current_start_id=os.listdir(status_dir)[0]
