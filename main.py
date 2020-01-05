@@ -13,7 +13,7 @@ wait_upper_threshold=300
 last_terminate_time=datetime.now()
 while True:
     #current_start_id=os.listdir(status_dir)[0]
-    os.system('python3 main.py')
+    os.system('python3 download.py')
     print('Program Exit. Taking a break...')
     log_file.write(str(datetime.now())+'#Program Terminated. Time elapsed: ' + \
                    str((last_terminate_time-datetime.now()).seconds)+'\n')

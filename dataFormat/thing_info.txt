@@ -1,0 +1,134 @@
+{'_id': ObjectId('5dd462a86fd6bec1dd23018f'),
+ 'added': '2009-01-06T16:39:06+00:00',
+ 'ancestors_url': 'https://api.thingiverse.com/things/2/ancestors',
+ 'app_id': None,
+ 'categories_url': 'https://api.thingiverse.com/things/2/categories',
+ 'collect_count': 39,
+ 'creator': {'first_name': '',
+             'id': 17714,
+             'last_name': '',
+             'name': 'replicator',
+             'public_url': 'https://www.thingiverse.com/replicator',
+             'thumbnail': 'https://cdn.thingiverse.com/site/img/default/avatar/avatar_default_thumb_medium.jpg',
+             'url': 'https://api.thingiverse.com/users/replicator'},
+ 'default_image': {'added': '2012-07-27T09:02:25+00:00',
+                   'id': 97585,
+                   'name': 'zarfscrewdriver.jpg',
+                   'sizes': [{'size': 'large',
+                              'type': 'thumb',
+                              'url': 'https://thingiverse-rerender-new.s3.amazonaws.com/renders/4c/b2/63/e6/9b/zarfscrewdriver_thumb_large.jpg'},
+                             {'size': 'medium',
+                              'type': 'thumb',
+                              'url': 'https://thingiverse-rerender-new.s3.amazonaws.com/renders/4c/b2/63/e6/9b/zarfscrewdriver_thumb_medium.jpg'},
+                             {'size': 'small',
+                              'type': 'thumb',
+                              'url': 'https://thingiverse-rerender-new.s3.amazonaws.com/renders/4c/b2/63/e6/9b/zarfscrewdriver_thumb_small.jpg'},
+                             {'size': 'tiny',
+                              'type': 'thumb',
+                              'url': 'https://thingiverse-rerender-new.s3.amazonaws.com/renders/4c/b2/63/e6/9b/zarfscrewdriver_thumb_tiny.jpg'},
+                             {'size': 'featured',
+                              'type': 'preview',
+                              'url': 'https://thingiverse-rerender-new.s3.amazonaws.com/renders/4c/b2/63/e6/9b/zarfscrewdriver_preview_featured.jpg'},
+                             {'size': 'card',
+                              'type': 'preview',
+                              'url': 'https://thingiverse-rerender-new.s3.amazonaws.com/renders/4c/b2/63/e6/9b/zarfscrewdriver_preview_card.jpg'},
+                             {'size': 'large',
+                              'type': 'preview',
+                              'url': 'https://thingiverse-rerender-new.s3.amazonaws.com/renders/4c/b2/63/e6/9b/zarfscrewdriver_preview_large.jpg'},
+                             {'size': 'medium',
+                              'type': 'preview',
+                              'url': 'https://thingiverse-rerender-new.s3.amazonaws.com/renders/4c/b2/63/e6/9b/zarfscrewdriver_preview_medium.jpg'},
+                             {'size': 'small',
+                              'type': 'preview',
+                              'url': 'https://thingiverse-rerender-new.s3.amazonaws.com/renders/4c/b2/63/e6/9b/zarfscrewdriver_preview_small.jpg'},
+                             {'size': 'birdwing',
+                              'type': 'preview',
+                              'url': 'https://thingiverse-rerender-new.s3.amazonaws.com/renders/4c/b2/63/e6/9b/zarfscrewdriver.jpg'},
+                             {'size': 'tiny',
+                              'type': 'preview',
+                              'url': 'https://thingiverse-rerender-new.s3.amazonaws.com/renders/4c/b2/63/e6/9b/zarfscrewdriver_preview_tiny.jpg'},
+                             {'size': 'tinycard',
+                              'type': 'preview',
+                              'url': 'https://thingiverse-rerender-new.s3.amazonaws.com/renders/4c/b2/63/e6/9b/zarfscrewdriver_preview_tinycard.jpg'},
+                             {'size': 'large',
+                              'type': 'display',
+                              'url': 'https://thingiverse-rerender-new.s3.amazonaws.com/renders/4c/b2/63/e6/9b/zarfscrewdriver_display_large.jpg'},
+                             {'size': 'medium',
+                              'type': 'display',
+                              'url': 'https://thingiverse-rerender-new.s3.amazonaws.com/renders/4c/b2/63/e6/9b/zarfscrewdriver_display_medium.jpg'},
+                             {'size': 'small',
+                              'type': 'display',
+                              'url': 'https://thingiverse-rerender-new.s3.amazonaws.com/renders/4c/b2/63/e6/9b/zarfscrewdriver_display_small.jpg'}],
+                   'url': 'https://cdn.thingiverse.com/assets/cf/16/45/ed/a3/zarfscrewdriver.stl'},
+ 'derivatives_url': 'https://api.thingiverse.com/things/2/derivatives',
+ 'description': "It's a small screwdriver, extruded as a single piece. "
+                'Probably no good for heavy jobs, but still handy.\r\n',
+ 'description_html': "<p>It's a small screwdriver, extruded as a single piece. "
+                     'Probably no good for heavy jobs, but still handy.</p>',
+ 'details': '<h1 class="thing-component-header summary summary">Summary</h1>\n'
+            "<div><p>It's a small screwdriver, extruded as a single piece. "
+            'Probably no good for heavy jobs, but still handy.</p></div>\n'
+            '<h1 class="thing-component-header custom '
+            'instructions">Instructions</h1>\n'
+            '<div><p>(Did you know that the Phillips-head screwdriver was '
+            'named after the legendary Crafty King Phillip of ancient times, '
+            'whose sons went on to invent the bandsaw and the pre-sliced '
+            'banana? Although, now that you look, this screwdriver is a '
+            'Flathead. Never mind.)</p></div>\n',
+ 'details_parts': [{'data': [{'content': "It's a small screwdriver, extruded "
+                                         'as a single piece. Probably no good '
+                                         'for heavy jobs, but still '
+                                         'handy.\r\n'}],
+                    'name': 'Summary',
+                    'required': 'required',
+                    'type': 'summary'},
+                   {'name': 'Print Settings', 'type': 'settings'},
+                   {'name': 'Post-Printing', 'type': 'tips'},
+                   {'name': 'How I Designed This', 'type': 'design'},
+                   {'name': 'Custom Section', 'type': 'custom'},
+                   {'data': [{'content': '(Did you know that the Phillips-head '
+                                         'screwdriver was named after the '
+                                         'legendary Crafty King Phillip of '
+                                         'ancient times, whose sons went on to '
+                                         'invent the bandsaw and the '
+                                         'pre-sliced banana? Although, now '
+                                         'that you look, this screwdriver is a '
+                                         'Flathead. Never mind.)\r\n'}],
+                    'name': 'Instructions',
+                    'type': 'custom'}],
+ 'download_count': 4383,
+ 'file_count': 1,
+ 'files_url': 'https://api.thingiverse.com/things/2/files',
+ 'id': 2,
+ 'images_url': 'https://api.thingiverse.com/things/2/images',
+ 'in_library': False,
+ 'instructions': '(Did you know that the Phillips-head screwdriver was named '
+                 'after the legendary Crafty King Phillip of ancient times, '
+                 'whose sons went on to invent the bandsaw and the pre-sliced '
+                 'banana? Although, now that you look, this screwdriver is a '
+                 'Flathead. Never mind.)\r\n',
+ 'instructions_html': '<p>(Did you know that the Phillips-head screwdriver was '
+                      'named after the legendary Crafty King Phillip of '
+                      'ancient times, whose sons went on to invent the bandsaw '
+                      'and the pre-sliced banana? Although, now that you look, '
+                      'this screwdriver is a Flathead. Never mind.)</p>',
+ 'is_collected': False,
+ 'is_featured': False,
+ 'is_liked': False,
+ 'is_private': False,
+ 'is_published': True,
+ 'is_purchased': False,
+ 'is_wip': False,
+ 'layout_count': 0,
+ 'layouts_url': 'https://api.thingiverse.com/layouts/2',
+ 'license': 'Public Domain',
+ 'like_count': 51,
+ 'likes_url': 'https://api.thingiverse.com/things/2/likes',
+ 'modified': '2012-01-06T16:39:06+00:00',
+ 'name': 'MakerBot Screwdriver',
+ 'print_history_count': 0,
+ 'public_url': 'https://www.thingiverse.com/thing:2',
+ 'tags_url': 'https://api.thingiverse.com/things/2/tags',
+ 'thumbnail': 'https://thingiverse-rerender-new.s3.amazonaws.com/renders/4c/b2/63/e6/9b/zarfscrewdriver_thumb_medium.jpg',
+ 'url': 'https://api.thingiverse.com/things/2',
+ 'view_count': 23953}

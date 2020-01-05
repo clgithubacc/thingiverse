@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>SignatureDoesNotMatch</Code><Message>The request signature we calculated does not match the signature you provided. Check your key and signing method.</Message><AWSAccessKeyId>AKIAJ4LU5KWCMM7WB7YA</AWSAccessKeyId><StringToSign>GET
+
+
+1578258901
+/thingiverse-production-new/zipfiles/34/d8/88/16/6c/Adjustable%20Car%20Phone%20Holder%20for%20CD-car%20slot%20--%20Porta%20cellulare%20regollabile%20per%20slot%20CD.zip</StringToSign><SignatureProvided>OTGTrcWcaA+jetQRf4h49xVP2Ic=</SignatureProvided><StringToSignBytes>47 45 54 0a 0a 0a 31 35 37 38 32 35 38 39 30 31 0a 2f 74 68 69 6e 67 69 76 65 72 73 65 2d 70 72 6f 64 75 63 74 69 6f 6e 2d 6e 65 77 2f 7a 69 70 66 69 6c 65 73 2f 33 34 2f 64 38 2f 38 38 2f 31 36 2f 36 63 2f 41 64 6a 75 73 74 61 62 6c 65 25 32 30 43 61 72 25 32 30 50 68 6f 6e 65 25 32 30 48 6f 6c 64 65 72 25 32 30 66 6f 72 25 32 30 43 44 2d 63 61 72 25 32 30 73 6c 6f 74 25 32 30 2d 2d 25 32 30 50 6f 72 74 61 25 32 30 63 65 6c 6c 75 6c 61 72 65 25 32 30 72 65 67 6f 6c 6c 61 62 69 6c 65 25 32 30 70 65 72 25 32 30 73 6c 6f 74 25 32 30 43 44 2e 7a 69 70</StringToSignBytes><RequestId>FE34C7BD7720C142</RequestId><HostId>BJRCw1+hG6HIchzeLuAySMJ+6If+qUJgHmvZuHuJlcK6gAIE+iJ9gAWX+wKBRp1aO4qa+G2y568=</HostId></Error>
