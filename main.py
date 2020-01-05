@@ -6,7 +6,7 @@ import os
 # status_fn=results[0]
 
 log_file=open('main_log.txt','w+')
-sleep_time_addon=10
+sleep_time_addon=15
 current_sleep_time=5
 threshold_for_sleep_increase=100
 wait_upper_threshold=100
