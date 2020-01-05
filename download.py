@@ -74,7 +74,7 @@ for tid in range(range_from, range_to):
             thing['thing_makes_raw']=thing_makes
             s = '/things/' + stid + '/package-url'
             thing_zip = t._get_it(s, None)
-            thing['thing_zip_raw'] = thing_makes
+            thing['thing_zip_raw'] = thing_zip
         except:
             print("\r" + stid + "Failed.#", end="", flush=True)
             api_succeed=False
@@ -84,7 +84,7 @@ for tid in range(range_from, range_to):
         sys.exit("Reached Max Try for thing# "+str(tid)+", Download Program Exits.")
     if not does_thing_exist:
         continue
-        
+
     #Simple Preprocessing
     categories=[]
     for item in thing['thing_categories_raw']:
