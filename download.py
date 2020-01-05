@@ -76,11 +76,12 @@ for tid in range(range_from, range_to):
             thing_zip = t._get_it(s, None)
             thing['thing_zip_raw'] = thing_zip
         except:
-            print("\r" + 'Thing ' + stid + "API Call Failed. Retrying...#", end="", flush=True)
+            print("\r" + 'Thing ' + stid + "API Call Failed. Retrying... " + str(try_count) + ' tries left.#', end="", flush=True)
             api_succeed=False
             time.sleep(1)
             try_count-=1
     if try_count<=0:
+        log_file.write(str(datetime.now()) + '#' + stid + ': API Call Failed:' + '\n')
         sys.exit("Reached Max Try for thing# "+str(tid)+", Download Program Exits.")
     if not does_thing_exist:
         continue
@@ -126,6 +127,6 @@ for tid in range(range_from, range_to):
     else:
         fcount += 1
 
-    thing_database.insert_one(t.get_thing(2))
+    thing_database.insert_one(thing)
     time.sleep(random.uniform(1,2))
     status_file_path=status_dir+stid
