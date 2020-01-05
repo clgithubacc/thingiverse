@@ -52,6 +52,7 @@ for tid in range(range_from, range_to):
     try_count=3
     api_succeed=False
     thing=None
+    does_thing_exist=True
     while not api_succeed and try_count>0:
         api_succeed=True
         try:
@@ -59,7 +60,8 @@ for tid in range(range_from, range_to):
             if 'error' in thing:
                 log_file.write(str(datetime.now()) + '#' + stid + ':GetThingErr:' + thing['error'] + '\n')
                 print("\r" + stid + "Failed", end="", flush=True)
-                continue
+                does_thing_exist=False
+                break
             thing_categories=t.get_thing_category(tid)
             thing['thing_categories_raw']=thing_categories
             thing_tags=t.get_thing_tags(tid)
@@ -80,7 +82,9 @@ for tid in range(range_from, range_to):
             try_count-=1
     if try_count<=0:
         sys.exit("Reached Max Try for thing# "+str(tid)+", Download Program Exits.")
-
+    if not does_thing_exist:
+        continue
+        
     #Simple Preprocessing
     categories=[]
     for item in thing['thing_categories_raw']:
