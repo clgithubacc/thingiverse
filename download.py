@@ -51,6 +51,7 @@ for tid in range(range_from, range_to):
     os.rename(status_file_path, status_dir + stid)
     try_count=3
     api_succeed=False
+    thing=None
     while not api_succeed and try_count>0:
         api_succeed=True
         try:
@@ -60,13 +61,18 @@ for tid in range(range_from, range_to):
                 print("\r" + stid + "Failed", end="", flush=True)
                 continue
             thing_categories=t.get_thing_category(tid)
+            thing['thing_categories_raw']=thing_categories
             thing_tags=t.get_thing_tags(tid)
+            thing['thing_tags_raw']=thing_tags
             s = "/things/%d/images/" % (tid)
             thing_images = t._get_it(s, None)
+            thing['thing_images_raw'] = thing_images
             s = "/things/%d/copies" % (tid)
             thing_makes = t._get_it(s, None)
+            thing['thing_makes_raw']=thing_makes
             s = '/things/' + stid + '/package-url'
             thing_zip = t._get_it(s, None)
+            thing['thing_zip_raw'] = thing_makes
         except:
             print("\r" + stid + "Failed.#", end="", flush=True)
             api_succeed=False
@@ -75,25 +81,20 @@ for tid in range(range_from, range_to):
     if try_count<=0:
         sys.exit("Reached Max Try for thing# "+str(tid)+", Download Program Exits.")
 
-    thing['thing_images_raw']=thing_images
-    thing['thing_categories_raw']=thing_categories
-    thing['thing_tags_raw']=thing_tags
-    thing['thing_makes_raw']=thing_makes
-
     #Simple Preprocessing
     categories=[]
-    for item in thing_categories:
+    for item in thing['thing_categories_raw']:
         categories.append(item['name'])
     thing['thing_categories']=categories
     tags = []
-    for item in thing_tags:
+    for item in thing['thing_tags_raw']:
         tags.append(item['name'])
     thing['thing_tags'] = tags
-    thing['thing_makes_count']=len(thing_makes)
+    thing['thing_makes_count']=len(thing['thing_makes_raw'])
 
     # Download Images
     os.makedirs(dir_name+img_dir_name+stid+'/')
-    for item in thing_images:
+    for item in thing['thing_images_raw']:
         image_name=item['name']
         for img_type in item['sizes']:
             if img_type['type']=='display' and img_type['size']=='large':
@@ -107,11 +108,11 @@ for tid in range(range_from, range_to):
                     f.write(image_file.content)
 
     # Download Thing Zip
-    zip_link = thing_zip['public_url']
+    zip_link = thing['thing_zip_raw']['public_url']
     zip_file = requests.get(zip_link)
     zip_fname = dir_name + zip_dir_name + stid + '.zip'
     with open(zip_fname, 'wb+') as f:
-        f.write(r.content)
+        f.write(zip_file.content)
     print("\r" + stid + "Downloaded", end="", flush=True)
     if fcount > fthreshold:
         dir_name = 'zip' + stid
