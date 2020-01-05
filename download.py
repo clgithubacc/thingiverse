@@ -25,7 +25,7 @@ status_file_path=status_dir+os.listdir(status_dir)[0]
 # Connect to Mongodb
 client=MongoClient('localhost', 27017)
 db=client.things
-thing_info=db.thing_info
+thing_database=db.thing_info
 log_file=open('err_log.txt', 'a+')
 log_file.write(str(datetime.now()) + '#Start\n')
 range_from=int(os.listdir(status_dir)[0])
@@ -126,5 +126,6 @@ for tid in range(range_from, range_to):
     else:
         fcount += 1
 
+    thing_database.insert_one(t.get_thing(2))
     time.sleep(random.uniform(1,2))
     status_file_path=status_dir+stid
