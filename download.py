@@ -59,7 +59,7 @@ for tid in range(range_from, range_to):
             thing=t.get_thing(tid)
             if 'error' in thing:
                 log_file.write(str(datetime.now()) + '#' + stid + ':GetThingErr:' + thing['error'] + '\n')
-                print("\r" + stid + "Failed", end="", flush=True)
+                print("\r" + stid + " Does Not Exist.#", end="", flush=True)
                 does_thing_exist=False
                 break
             thing_categories=t.get_thing_category(tid)
@@ -76,7 +76,7 @@ for tid in range(range_from, range_to):
             thing_zip = t._get_it(s, None)
             thing['thing_zip_raw'] = thing_zip
         except:
-            print("\r" + stid + "Failed.#", end="", flush=True)
+            print("\r" + 'Thing '+ stid + "API Call Failed. Retrying...#", end="", flush=True)
             api_succeed=False
             time.sleep(1)
             try_count-=1
@@ -104,7 +104,7 @@ for tid in range(range_from, range_to):
             if img_type['type']=='display' and img_type['size']=='large':
                 image_url=img_type['url']
                 image_file = requests.get(image_url)
-                image_fname = dir_name + img_dir_name + stid + image_name
+                image_fname = dir_name + img_dir_name + stid + '/' + image_name
                 # Later thing images end w/ .stl are actually pngs
                 if image_url.endswith('stl') or image_url.endswith('STL'):
                     image_fname+='.png'
@@ -117,7 +117,7 @@ for tid in range(range_from, range_to):
     zip_fname = dir_name + zip_dir_name + stid + '.zip'
     with open(zip_fname, 'wb+') as f:
         f.write(zip_file.content)
-    print("\r" + stid + "Downloaded", end="", flush=True)
+    print("\r" + 'Thing ' + stid + " Downloaded.#", end="", flush=True)
     if fcount > fthreshold:
         dir_name = 'zip' + stid
         if not os.path.exists(dir_name):
