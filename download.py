@@ -100,7 +100,8 @@ for tid in range(range_from, range_to):
     thing['thing_makes_count']=len(thing['thing_makes_raw'])
 
     # Download Images
-    os.makedirs(dir_name+img_dir_name+stid+'/')
+    if not os.path.exists(dir_name+img_dir_name+stid+'/'):
+        os.makedirs(dir_name+img_dir_name+stid+'/')
     for item in thing['thing_images_raw']:
         image_name=item['name']
         for img_type in item['sizes']:
