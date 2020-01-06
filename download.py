@@ -89,7 +89,7 @@ for tid in range(range_from, range_to):
         continue
     # Handle zip file errors for existing thing
     if 'error' in thing['thing_zip_raw']:
-        log_file.write(str(datetime.now()) + '#' + stid + ':ThingZipErr:' + thing['thing_zip_raw'] + '\n')
+        log_file.write(str(datetime.now()) + '#' + stid + ':ThingZipErr:' + str(thing['thing_zip_raw']['error']) + '\n')
         print("\r" + str(datetime.now()) + 'Thing ' + stid + " Zip File Error.#", end="", flush=True)
         continue
     #Simple Preprocessing
