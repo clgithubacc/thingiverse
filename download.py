@@ -104,6 +104,8 @@ for tid in range(range_from, range_to):
         os.makedirs(dir_name+img_dir_name+stid+'/')
     for item in thing['thing_images_raw']:
         image_name=item['name']
+        if len(image_name)==0:
+            image_name='img_autonamed_'+str(datetime.now())
         for img_type in item['sizes']:
             if img_type['type']=='display' and img_type['size']=='large':
                 image_url=img_type['url']
