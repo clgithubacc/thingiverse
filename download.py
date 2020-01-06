@@ -64,6 +64,8 @@ for tid in range(range_from, range_to):
                 break
             thing_categories=t.get_thing_category(tid)
             thing['thing_categories_raw']=thing_categories
+            thing['thing_ancestors_raw']=t.get_thing_ancestors(tid)
+            thing['thing_derivatives_raw']=t.get_thing_derivatives(tid)
             thing_tags=t.get_thing_tags(tid)
             thing['thing_tags_raw']=thing_tags
             s = "/things/%d/images/" % (tid)
