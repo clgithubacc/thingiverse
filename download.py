@@ -107,6 +107,8 @@ for tid in range(range_from, range_to):
             if img_type['type']=='display' and img_type['size']=='large':
                 image_url=img_type['url']
                 image_file = requests.get(image_url)
+                image_name = image_name.replace('\\', '_BACKSLASH_')
+                image_name = image_name.replace('/', '_SLASH_')
                 image_fname = dir_name + img_dir_name + stid + '/' + image_name
                 # Later thing images end w/ .stl are actually pngs
                 if image_url.endswith('stl') or image_url.endswith('STL'):
