@@ -111,7 +111,10 @@ for tid in range(range_from, range_to):
     for item in thing['thing_images_raw']:
         image_name=item['name']
         if len(image_name)==0:
-            image_name='img_autonamed_'+str(datetime.now())
+            image_name='img_autonamed_'+str(datetime.now())+'.jpg'
+        elif not image_name.endwith('jpg') and not image_name.endwith('png'):
+            image_name='img_addextension_'+image_name+'.jpg'
+
         for img_type in item['sizes']:
             if img_type['type']=='display' and img_type['size']=='large':
                 image_url=img_type['url']
