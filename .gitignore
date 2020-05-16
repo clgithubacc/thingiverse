@@ -1,5 +1,9 @@
 #Project specific
 key.txt
+*.csv
+*.txt
+status/
+zip*/
 img/
 threedimage/
 userimage/
@@ -109,3 +113,4 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+err_log.txt

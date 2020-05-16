@@ -25,7 +25,8 @@ status_file_path=status_dir+os.listdir(status_dir)[0]
 # Connect to Mongodb
 client=MongoClient('localhost', 27017)
 db=client.things
-thing_database=db.thing_info
+#thing_database=db.thing_info
+thing_database=db.thing_nsfw
 log_file=open('err_log.txt', 'a+')
 log_file.write(str(datetime.now()) + '#Start\n')
 range_from=int(os.listdir(status_dir)[0])
@@ -46,9 +47,14 @@ if not os.path.exists(dir_name):
 fcount=0
 fthreshold=1000
 
-for tid in range(range_from, range_to):
+import pandas as pd
+df=pd.read_csv('latest_nsfw.csv')
+#for tid in range(range_from, range_to):
+for dfi in range(range_from,df.shape[0]):
+    tid=int(df.iloc[dfi, 2])
     stid=str(tid)
-    os.rename(status_file_path, status_dir + stid)
+    #os.rename(status_file_path, status_dir + stid)
+    os.rename(status_file_path, status_dir + str(dfi))
     try_count=3
     api_succeed=False
     thing=None
@@ -61,7 +67,8 @@ for tid in range(range_from, range_to):
                 log_file.write(str(datetime.now()) + '#' + stid + ':GetThingErr:' + thing['error'] + '\n')
                 print("\r" + str(datetime.now())+'Thing ' + stid + " Does Not Exist.#", end="", flush=True)
                 does_thing_exist=False
-                break
+                api_succeed=True
+                #break
             thing_categories=t.get_thing_category(tid)
             thing['thing_categories_raw']=thing_categories
             thing['thing_ancestors_raw']=t.get_thing_ancestors(tid)
@@ -84,15 +91,19 @@ for tid in range(range_from, range_to):
             try_count-=1
     if try_count<=0:
         log_file.write(str(datetime.now()) + '#' + stid + ': API Call Failed:' + '\n')
-        status_file_path=status_dir+stid
+        status_file_path=status_dir+str(dfi)
+        #status_file_path=status_dir+stid
         sys.exit("Reached Max Try for thing# "+str(tid)+", Download Program Exits.")
     if not does_thing_exist:
-        status_file_path=status_dir+stid
+        status_file_path=status_dir+str(dfi)
+        #status_file_path=status_dir+stid
         continue
     # Handle zip file errors for existing thing
     if 'error' in thing['thing_zip_raw']:
         log_file.write(str(datetime.now()) + '#' + stid + ':ThingZipErr:' + str(thing['thing_zip_raw']['error']) + '\n')
         print("\r" + str(datetime.now()) + 'Thing ' + stid + " Zip File Error.#", end="", flush=True)
+        status_file_path=status_dir+str(dfi)
+        #status_file_path = status_dir + stid
         continue
     #Simple Preprocessing
     categories=[]
@@ -112,7 +123,7 @@ for tid in range(range_from, range_to):
         image_name=item['name']
         if len(image_name)==0:
             image_name='img_autonamed_'+str(datetime.now())+'.jpg'
-        elif not image_name.endwith('jpg') and not image_name.endwith('png'):
+        elif not image_name.endswith('jpg') and not image_name.endswith('png'):
             image_name='img_addextension_'+image_name+'.jpg'
 
         for img_type in item['sizes']:
@@ -145,4 +156,5 @@ for tid in range(range_from, range_to):
 
     thing_database.insert_one(thing)
     time.sleep(random.uniform(1,2))
-    status_file_path=status_dir+stid
+    status_file_path=status_dir+str(dfi)
+    #status_file_path=status_dir+stid
